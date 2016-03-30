@@ -20,11 +20,31 @@ from evennia.settings_default import *
 ######################################################################
 
 # This is the name of your game. Make it catchy!
-SERVERNAME = "Ainneve"
+SERVERNAME = "Cursed Library"
+
+# own changes
+TELNET_ENABLED = True
+TELNET_PORTS = [13133]
+#TELNET_INTERFACES = ['192.168.137.49']
+
+#WEBSERVER_INTERFACES = ['192.168.137.49']
+#WEBSERVER_PORTS = [(13130, 5001)]
+#ALLOWED_HOSTS = ["*"]
+
+TIME_ZONE = 'Europe/Berlin'
+LANGUAGE_CODE = 'de-de'
+
+#IDMAPPER_CACHE_MAXSIZE = 100      # (MB)
+TIME_FACTOR = 1.0
+
+GUEST_ENABLED = True
+GUEST_LIST = ["Sissy-" + str(s+1) for s in range(9)]
+
+IRC_ENABLED = True
 
 # Allow multiple sessions per player; one character per session
 MULTISESSION_MODE = 2
-MAX_NR_CHARACTERS = 5
+MAX_NR_CHARACTERS = 10
 
 # Path to the game directory (use EVENNIA_DIR to refer to the
 # core evennia library)
@@ -103,4 +123,4 @@ TEMPLATE_DIRS = (
 # Django's cookies. Do not share this with anyone. Changing it will
 # log out all active web browsing sessions. Game web client sessions
 # may survive.
-SECRET_KEY = '5(r:%@Gmg-?}NU3d[/ul8+t.SJ$",c`|qxsDo"Z='
+SECRET_KEY = '5(r:%@Gmg-?}2b354234v52%"34vfg$,c`|qxsDo"Z='
