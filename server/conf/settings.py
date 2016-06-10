@@ -1,18 +1,21 @@
 """
 Evennia settings file.
-
-The full options are found in the default settings file found here:
-
-/home/griatch/Devel/MUD/evennia/evennia-trunk/evennia/settings_default.py
-
-Note: Don't copy more from the default file than you actually intend to
+The available options are found in the default settings file found
+here:
+{settings_default}
+Remember:
+Don't copy more from the default file than you actually intend to
 change; this will make sure that you don't overload upstream updates
 unnecessarily.
-
+When changing a setting requiring a file system path (like
+path/to/actual/file.py), use GAME_DIR and EVENNIA_DIR to reference
+your game folder and the Evennia library folders respectively. Python
+paths (path.to.module) should be given relative to the game's root
+folder (typeclasses.foo) whereas paths within the Evennia library
+needs to be given explicitly (evennia.foo).
 """
 
 # Use the defaults from Evennia unless explicitly overridden
-import os
 from evennia.settings_default import *
 
 ######################################################################
@@ -42,19 +45,20 @@ GUEST_LIST = ["Sissy-" + str(s+1) for s in range(9)]
 
 IRC_ENABLED = True
 
+######################################################################
+# Django web features
+######################################################################
+
+
+# The secret key is randomly seeded upon creation. It is used to sign
+# Django's cookies. Do not share this with anyone. Changing it will
+# log out all active web browsing sessions. Game web client sessions
+# may survive.
+SECRET_KEY = '5(r:%@Gmg-?}NU3d[/ul8+t.SJ$",c`|qxsDo"Z='
+
 # Allow multiple sessions per player; one character per session
 MULTISESSION_MODE = 2
 MAX_NR_CHARACTERS = 10
-
-# Path to the game directory (use EVENNIA_DIR to refer to the
-# core evennia library)
-GAME_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
-# Place to put log files
-LOG_DIR = os.path.join(GAME_DIR, "server", "logs")
-SERVER_LOG_FILE = os.path.join(LOG_DIR, 'server.log')
-PORTAL_LOG_FILE = os.path.join(LOG_DIR, 'portal.log')
-HTTP_LOG_FILE = os.path.join(LOG_DIR, 'http_requests.log')
 
 # Other defaults
 PROTOTYPE_MODULES = ('world.content.prototypes_armor',
@@ -63,8 +67,9 @@ PROTOTYPE_MODULES = ('world.content.prototypes_armor',
                      'world.content.prototypes_mobs',
                      'world.content.prototypes_weapons'
                      )
-BASE_BATCHPROCESS_PATHS = ['world.build']
+BASE_BATCHPROCESS_PATHS = ['world.content', 'evennia.contrib']
 
+<<<<<<< HEAD
 ######################################################################
 # Evennia Database config
 ######################################################################
@@ -124,3 +129,5 @@ TEMPLATE_DIRS = (
 # log out all active web browsing sessions. Game web client sessions
 # may survive.
 SECRET_KEY = '5(r:%@Gmg-?}2b354234v52%"34vfg$,c`|qxsDo"Z='
+=======
+>>>>>>> 4d75b9d5e80f939195614174b8cc70050bb36d2c
