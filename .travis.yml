@@ -6,6 +6,11 @@ install:
   - cd evennia
   - pip install -e .
   - cd $TRAVIS_BUILD_DIR
+  - mkdir $TRAVIS_BUILD_DIR/server/logs
+  - touch $TRAVIS_BUILD_DIR/server/logs/server.log
+  - touch $TRAVIS_BUILD_DIR/server/logs/http_requests.log
+  - touch $TRAVIS_BUILD_DIR/server/logs/lockwarnings.log
+  - touch $TRAVIS_BUILD_DIR/server/logs/portal.log
 script:
   - evennia migrate
   - evennia test evennia
