@@ -42,11 +42,11 @@ TIME_FACTOR = 1.0
 #MULTISESSION_MODE = 2
 MAX_NR_CHARACTERS = 10
 GUEST_ENABLED = True
-GUEST_LIST = ["Visitor-" + str(s+1) for s in range(29)]
+GUEST_LIST = ["Bookworm-" + str(s+1) for s in range(29)]
 
 IRC_ENABLED = True
 RSS_ENABLED = True
-RSS_UPDATE_INTERVAL = 60*10 # 10 minutes
+RSS_UPDATE_INTERVAL = 60*15 # 15 minutes
 
 
 

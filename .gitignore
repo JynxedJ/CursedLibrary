@@ -27,7 +27,7 @@ __pycache__
 *TODO.md
 
 # Installation-specific
-#server/conf/settings.py
+server/conf/settings.py
 server/logs/*.log.*
 web/static/*
 web/media/*
